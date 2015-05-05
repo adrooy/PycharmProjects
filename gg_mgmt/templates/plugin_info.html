@@ -1,0 +1,250 @@
+{% extends 'base/base.html' %}
+
+{% load filter_extras %}
+
+{% block title %}插件入库记录信息{% endblock %}
+
+{% block extracss %}
+<link href="/gg_mgmt/static/css/zzsc.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <!--section class="content-header">
+          <h1>
+            Data Tables
+            <small>advanced tables</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Data tables</li>
+          </ol>
+        </section-->
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">插件入库记录信息</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="input-group input-group-sm">
+                      <span class="input-group-btn">
+                        <button class="btn btn-info btn-flat showgame" localid="1" type="button">插件入库</button>
+                      </span>
+                    </div>
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>插件包名</th>
+                        <th>插件版本号</th>
+                        <th>目标游戏包名</th>
+                        <th>目标游戏版本号</th>
+                        <th>入库人</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>入库持续时间(s)</th>
+                        <th>入库状态</th>
+                        <th>入库信息</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for info in infos %}
+                      <tr>
+                        <td>{{ info.id }}</td>
+                        <td>{{ info.plugin_pkg_name }}</td>
+                        <td>{% if info.plugin_ver_code %}{{ info.plugin_ver_code }}{% endif %}</td>
+                        <td>{{ info.target_pkg_name }}</td>
+                        <td>{{ info.target_ver_code }}</td>
+                        <td>{{ info.editor }}</td>
+                        <td>{% current_time info.save_timestamp "%Y-%m-%d %H:%M:%S" %}</td>
+                        <td>{% current_time info.update_timestamp "%Y-%m-%d %H:%M:%S" %}</td>
+                        <td>{% minue_time info.update_timestamp info.save_timestamp %}</td>
+                        <td>{% trinocular info.is_finished "已完成" "进行中" %}</td>
+                        <td>{% if info.msg %}{{ info.msg }}{% endif %}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>序号</th>
+                        <th>插件包名</th>
+                        <th>插件版本号</th>
+                        <th>目标游戏包名</th>
+                        <th>目标游戏版本号</th>
+                        <th>入库人</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>入库持续时间(s)</th>
+                        <th>入库状态</th>
+                        <th>入库信息</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+<!-- 浮层html -->
+  <div class="showbox">
+    <h2>选择插件对应的游戏信息<a class="close" href="#">关闭</a></h2>
+      <!--ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#fl_zy" role="tab" data-toggle="tab">自营数据</a></li>
+        <li role="presentation"><a href="#fl_wdj" role="tab" data-toggle="tab">豌豆荚数据</a></li>
+      </ul-->
+      <div class="mainlist">
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-xs-10">
+                    <!--div class="form-group" id="sm_cat">
+                      <label>可用的广告平台渠道</label>
+                      <select multiple class="form-control" id="groups_old">
+                        {% for ch in channels %}
+                        {% get_groups_old ch chs %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group-addon btn btn-info active">快速搜索</div>
+                      <input type="text" id='appname' name='' value="" placeholder="输入游戏名称或者游戏包名" class="form-control">
+                    </div-->
+                    <div class="form-group">
+                      <label>目标游戏包名</label>
+                      <input class="form-control" id="target_pkg_name" value="">
+                    </div>
+                    <div class="form-group">
+                      <label>目标游戏版本号</label>
+                      <input class="form-control" id="target_ver_code" value="">
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.box-body -->
+            </form>
+          </div><!-- /.box -->
+        </div><!--/.col (left) -->
+
+          <div role="tabpanel" class="tab-pane active" id="fl_zy">
+            <div class="modal-footer" style="margin-top:0px;">
+              <button class="btn btn-info btn-flat" type="button" onclick="save()">确定</button>
+              <button class="btn btn-info btn-flat" type="button" onclick="cancel()">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div id="zhezhao"></div>
+
+{% endblock %}
+
+{% block extrajs %}
+    <script>
+    //选择渠道的浮层
+    $(".showgame").click(function(){
+        var localid = $(this).attr("localid");
+        var id = localid.replace(/[^0-9]/ig,"");
+        $("input[name=type]").val(id);
+        var box =500;
+        var th= $(window).scrollTop()+$(window).height()/1.6-box;
+        var h =document.body.clientHeight;
+        var rw =$(window).width()/2-box;
+        $(".showbox").animate({top:40,opacity:'show',width:700,height:300,right:rw},500);
+        $("#zhezhao").css({
+            display:"block",height:$(document).height()
+        });
+        return false;
+    });
+    $(".showbox .close").click(function(){
+        $(this).parents(".showbox").animate({top:0,opacity: 'hide',width:0,height:0,right:0},500);
+        $("#zhezhao").css("display","none");
+    });
+    function cancel() {
+      $(".showbox").animate({top:0,opacity: 'hide',width:0,height:0,right:0},500);
+      $("#zhezhao").css("display","none");
+    };
+
+    //搜索信息
+    $("#appname").keyup(function() {
+      var keyword = $(this).val();
+      console.log(keyword);
+      $.ajax({
+        type: 'post',
+        url: '/gg_mgmt/search/game/',
+        data: {
+          keyword: keyword,
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+        dataType: 'html',
+        success: function (games) {
+          var div = '';
+          div += "<span>游戏名</span><input type='text' id='form_game_name' value=''/>"
+          if (games) {
+            var games = eval('(' + games + ')');
+            $.each(games, function (k, v) {
+              alert(games[k]);
+              div += "<div class='col-lg-6'><div class='input-group'><label class='input-group'><span class='input-group-addon'><input type='radio' id='form_game_id' name='game' value='" + games[k][0] + "'></span><button type='button' class='btn btn-default btn-block'>" + games[k][1] + "</button></label></div></div>";
+            })
+            $("#sm_cat").html(div);
+          } else {
+            div = "<div style='color:red;width:100%;height:100px;font-size:18px;line-height:100px;text-align:center;'>暂无相关应用</div>";
+            $("#sm_cat").html(div);
+          }
+        }
+      });
+    });
+
+    function save() {
+        var target_pkg_name = $("#target_pkg_name").val();
+        var target_ver_code = $("#target_ver_code").val();
+        var descJson = {};
+        descJson['target_pkg_name'] = target_pkg_name;
+        descJson['target_ver_code'] = target_ver_code;
+        //alert(JSON.stringify(descJson));
+        if (target_pkg_name && target_ver_code) {
+            $.post('/gg_mgmt/upload/plugin/', descJson, function (result) {
+                alert("插件正在入库！！！");
+                window.location.href = '/gg_mgmt/upload/plugin/info/';
+            });
+        } else {
+            alert("请补充完整游戏信息！！！");
+        }
+    };
+    </script>
+    <script type="text/javascript">
+      $(function () {
+        $("#example1").dataTable({
+          "bSort": false,
+          "bLengthChange": true,
+          "bFilter": false,
+          "oLanguage": {
+            "sLengthMenu": "每页显示 _MENU_ 条记录",
+            "sZeroRecords": "抱歉， 没有找到",
+            "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+            "sInfoEmpty": "没有数据",
+            "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+            "oPaginate": {
+              "sFirst": "首页",
+              "sPrevious": "前一页",
+              "sNext": "后一页",
+              "sLast": "尾页"
+            },
+            "sZeroRecords": "没有检索到数据"
+          }
+        });
+      });
+    </script>
+{% endblock %}

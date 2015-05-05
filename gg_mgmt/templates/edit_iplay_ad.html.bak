@@ -1,0 +1,515 @@
+{% extends 'base/base.html' %}
+
+{% block title %}编辑广告信息{% endblock %}
+
+{% block content %}
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <!--h1>
+            Data Tables
+            <small>advanced tables</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Data tables</li>
+          </ol-->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-3">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header">
+                    {% if info %}
+                  <h3 class="box-title">信息的修改只用于老广告！！！</h3>
+                    {% endif %}
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    <button type="submit" class="btn btn-primary" id="save">保存信息</button>
+                  </div>
+                </form>
+                <form role="form">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label>广告平台渠道</label>
+                      <select class="form-control" id="channel">
+                        {% for ch in channels %}
+                        {% ifequal ch.id info.channel %}
+                        <option value="{{ ch.id }}" selected="selected">{{ ch.name }}</option>
+                        {% else %}
+                        <option value="{{ ch.id }}">{{ ch.name }}</option>
+                        {% endifequal %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>适用场景</label>
+                      <select class="form-control" id="type">
+                        {% for tp in types %}
+                        {% ifequal tp.id info.type %}
+                        <option value="{{ tp.id }}" selected="selected">{{ tp.name }}</option>
+                        {% else %}
+                        <option value="{{ tp.id }}">{{ tp.name }}</option>
+                        {% endifequal %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                      <label>标题</label>
+                      <input class="form-control" id="title" value="{% if info.title %}{{ info.title }}{% endif %}">
+                    </div>
+                    <div class="form-group" style="display:none;">
+                      <label>通知栏大图标</label>
+                      <input class="form-control" id="big_pic_url" value="{% if info.big_pic_url %}{{ info.big_pic_url }}{% endif %}">
+                    </div>
+                    <div class="input-group input-group-sm" style="display:none;">
+                      <label id="show_delay_label">广告展示延时</label>
+                    </div>
+                    <div class="input-group" style="display:none;">
+                      <input class="form-control" id="show_delay" value="{% if info.show_delay %}{{ info.show_delay }}{% else %}120{% endif %}">
+                      <span class="input-group-addon">秒</span>
+                    </div>
+                    <div class="input-group input-group-sm" style="display:none;">
+                      <label id="next_delay_label">下次广告展示延时</label>
+                    </div>
+                    <div class="input-group" style="display:none;">
+                      <input class="form-control" id="next_delay" value="{% if info.next_delay %}{{ info.next_delay }}{% else %}43200{% endif %}">
+                      <span class="input-group-addon">秒</span>
+                    </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (left) -->
+            <div class="col-md-3">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">编辑广告内容</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    {% if info.id %}
+                    <div class="form-group">
+                      <label>广告id</label>
+                      <input class="form-control" id="id" value="{{ info.id }}" disabled>
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                      <label>游戏id(表明该位置的缺省广告, 否则是对应某游戏的广告)</label>
+                      <input class="form-control" id="package_name" value="default" disabled>
+                    </div>
+                    <div class="form-group">
+                      <label>内容</label>
+                      <textarea class="form-control" rows="3" id="content">{% if info.content %}{{ info.content }}{% endif %}</textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>广告图片地址</label>
+                      <input class="form-control" id="pic_url" value="{% if info.pic_url %}{{ info.pic_url }}{% endif %}">
+                    </div>
+                    <div class="form-group">
+                      <label>广告目标的包名</label>
+                      <input class="form-control" id="pkg_name" value="{% if info.pkg_name %}{{ info.pkg_name }}{% endif %}">
+                    </div>
+                    <div class="input-group input-group-sm">
+                      <label>广告目标的过滤包名列表(用于客户端滤重){{filter_pkg_names}}</label>
+                      <span class="input-group-btn">
+                        <button class="btn btn-info btn-flat" type="button" id="add_filter_pkg_names">增加</button>
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <select multiple class="form-control" id="filter_pkg_names">
+                        {% for filter_pkg_name in info.filter_pkg_names %}
+                        <option id="option_{{ filter_pkg_name }}" onclick="del_filter_pkg_names('{{ filter_pkg_name }}')" value="{{ filter_pkg_name}}">{{ filter_pkg_name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (left) -->
+            <div class="col-md-3">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">编辑广告交互</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    <div class="input-group input-group-sm">
+                      <label id="life_time_label">广告的生命期</label>
+                    </div>
+                    <div class="input-group">
+                      <input class="form-control" id="life_time" value="{% if info.life_time %}{{ info.life_time }}{% else %}48{% endif %}">
+                      <span class="input-group-addon">小时</span>
+                    </div>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        {% if info %}
+                        <label>
+                          <input type="checkbox" name="wifi_silent" value="1" {% ifequal info.wifi_silent 1 %}checked{% endifequal %}>
+                          wifi时静默下载
+                        </label>
+                        {% else %}
+                        <label>
+                          <input type="checkbox" name="wifi_silent" value="1" checked>
+                          wifi时静默下载
+                        </label>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        {% if info %}
+                        &nbsp;
+                        {% ifequal info.wifi_silent 1 %}
+                        <label>
+                          <input type="checkbox" name="monet_silent" value="1" {% ifequal info.monet_silent 1 %}checked{% endifequal %}>
+                          移动网络时静默下载
+                        </label>
+                        {% else %}
+                        <label>
+                          <input type="checkbox" name="monet_silent" value="1" disabled>
+                          移动网络时静默下载
+                        </label>
+                        {% endifequal %}
+                        {% else %}
+                        &nbsp;
+                        <label>
+                          <input type="checkbox" name="monet_silent" value="1">
+                          移动网络时静默下载
+                        </label>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        {% if info %}
+                        <label>
+                          <input type="checkbox" name="download_dismissible" value="1" {% ifequal info.download_dismissible 1 %}checked{% endifequal %}>
+                          广告下载通知栏是否可被划去
+                        </label>
+                        {% else %}
+                        <label>
+                          <input type="checkbox" name="download_dismissible" value="1">
+                          广告下载通知栏是否可被划去
+                        </label>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        {% if info %}
+                        <label>
+                          <input type="checkbox" name="install_dismissible" value="1" {% ifequal info.install_dismissible 1 %}checked{% endifequal %}>
+                          广告安装通知栏是否可被划去
+                        </label>
+                        {% else %}
+                        <label>
+                          <input type="checkbox" name="install_dismissible" value="1">
+                          广告安装通知栏是否可被划去
+                        </label>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (left) -->
+            <div class="col-md-3">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">编辑广告动作</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label>点击后的跳转类型</label>
+                      <select class="form-control" id="target_type">
+                        {% for tp in target_types %}
+                        {% ifequal tp.id info.target_type %}
+                        <option value="{{ tp.id }}" selected="selected">{{ tp.name }}</option>
+                        {% else %}
+                        <option value="{{ tp.id }}">{{ tp.name }}</option>
+                        {% endifequal %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                      <label>跳转目标</label>
+                      <input class="form-control" id="target" value="{% if info.target %}{{ info.target }}{% endif %}">
+                    </div>
+                    <div class="form-group" style="display:none;">
+                      <label>广告目标的版本</label>
+                      <input class="form-control" id="ver_name" value="{% if info.ver_name %}{{ info.ver_name }}{% endif %}">
+                    </div>
+                    <div class="form-group" style="display:none;">
+                      <label>广告目标的文件大小</label>
+                      <input class="form-control" id="size" value="{% if info.size %}{{ info.size }}{% else %}0{% endif %}">
+                    </div>
+                    <div class="form-group" style="display:none;">
+                      <label>广告目标的文件名</label>
+                      <input class="form-control" id="filename" value="{% if info.filename %}{{ info.filename }}{% endif %}">
+                    </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (left) -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var type = $("#type").val();
+        if (type == '1'){
+            $("#title").parent().hide();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        if (type == '2'){
+            $("#title").parent().hide();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        if (type == '3'){
+            $("#title").parent().hide();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        if (type == '4'){
+            $("#title").parent().show();
+            $("#big_pic_url").parent().show();
+            $("#show_delay").parent().show();
+            $("#next_delay").parent().show();
+            $("#show_delay_label").parent().show();
+            $("#next_delay_label").parent().show();
+        }
+        if (type == '5'){
+            $("#title").parent().show();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        var target_type = $("#target_type").val();
+        if (target_type == '0'){
+            $("#target").parent().hide();
+            $("#ver_name").parent().hide();
+            $("#size").parent().hide();
+            $("#filename").parent().hide();
+        }
+        if (target_type == '1'){
+            $("#target").parent().show();
+            $("#ver_name").parent().hide();
+            $("#size").parent().hide();
+            $("#filename").parent().hide();
+        }
+        if (target_type == '2'){
+            $("#target").parent().show();
+            $("#ver_name").parent().hide();
+            $("#size").parent().hide();
+            $("#filename").parent().hide();
+        }
+        if (target_type == '3'){
+            $("#target").parent().show();
+            $("#ver_name").parent().show();
+            $("#size").parent().show();
+            $("#filename").parent().show();
+        }
+      });
+      $("#type").change(function(){
+        var type = $("#type").val();
+        if (type == '1'){
+            $("#title").parent().hide();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        if (type == '2'){
+            $("#title").parent().hide();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        if (type == '3'){
+            $("#title").parent().hide();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+        if (type == '4'){
+            $("#title").parent().show();
+            $("#big_pic_url").parent().show();
+            $("#show_delay").parent().show();
+            $("#next_delay").parent().show();
+            $("#show_delay_label").parent().show();
+            $("#next_delay_label").parent().show();
+        }
+        if (type == '5'){
+            $("#title").parent().show();
+            $("#big_pic_url").parent().hide();
+            $("#show_delay").parent().hide();
+            $("#next_delay").parent().hide();
+            $("#show_delay_label").parent().hide();
+            $("#next_delay_label").parent().hide();
+        }
+      });
+      $("#target_type").change(function(){
+        var target_type = $("#target_type").val();
+        if (target_type == '0'){
+            $("#target").parent().hide();
+            $("#ver_name").parent().hide();
+            $("#size").parent().hide();
+            $("#filename").parent().hide();
+        }
+        if (target_type == '1'){
+            $("#target").parent().show();
+            $("#ver_name").parent().hide();
+            $("#size").parent().hide();
+            $("#filename").parent().hide();
+        }
+        if (target_type == '2'){
+            $("#target").parent().show();
+            $("#ver_name").parent().hide();
+            $("#size").parent().hide();
+            $("#filename").parent().hide();
+        }
+        if (target_type == '3'){
+            $("#target").parent().show();
+            $("#ver_name").parent().show();
+            $("#size").parent().show();
+            $("#filename").parent().show();
+        }
+      });
+      $("input[name='wifi_silent']").change(function () {
+          if ($("input[name='wifi_silent']").is(':checked') == true){
+              $("input[name='monet_silent']").attr("disabled", false);
+          }
+          if ($("input[name='wifi_silent']").is(':checked') == false){
+              $("input[name='monet_silent']").attr("disabled", true);
+          }
+      });
+      /**增加过滤信息**/
+      $("#add_filter_pkg_names").click(function(){
+        var value = prompt('请输入pkg_name的正则表达式:');
+        if (value) {
+            var filter_pkg_names = [];
+            $("#filter_pkg_names option").each(function (){
+                filter_pkg_names.push($(this).text());
+            });
+            if ($.inArray(value, filter_pkg_names) == -1) {
+                $("#filter_pkg_names").append("<option id='option_"+value+"' onclick="+"del_filter_pkg_names('"+value+"')"+" value='"+value+"'>"+value+"</option>");
+            } else {
+                alert('正则表达式已存在，请重新输入！！！');
+            }
+        }
+      });
+      function del_filter_pkg_names(id) {
+        if(confirm('确认删除吗？')){
+            $("#option_"+id).remove();
+        }
+      }
+      $("#save").click(function(){
+        var id = $("#id").val();
+        var type = $("#type").val();
+        var package_name = $("#package_name").val();
+        var order_num = $("#order_num").val();
+        var title = $("#title").val();
+        var content = $("#content").val();
+        var pic_url = $("#pic_url").val();
+        var big_pic_url = $("#big_pic_url").val();
+        var target_type = $("#target_type").val();
+        var target = $("#target").val();
+        var pkg_name = $("#pkg_name").val();
+        var ver_name = $("#ver_name").val();
+        var size = $("#size").val();
+        var filename = $("#filename").val();
+        var show_delay = $("#show_delay").val();
+        var next_delay = $("#next_delay").val();
+        var filter_pkg_names = [];
+        $("#filter_pkg_names option").each(function (){
+            filter_pkg_names.push($(this).text());
+        });
+        var channel = $("#channel").val();
+        var life_time = $("#life_time").val();
+        var monet_silent = "";
+        $('input[type="checkbox"][name="monet_silent"]:checked').each(function(){
+            monet_silent = $(this).val();
+        });
+        var wifi_silent = "";
+        $('input[type="checkbox"][name="wifi_silent"]:checked').each(function(){
+            wifi_silent = $(this).val();
+        });
+        var download_dismissible = "";
+        $('input[type="checkbox"][name="download_dismissible"]:checked').each(function(){
+            download_dismissible = $(this).val();
+        });
+        var install_dismissible = "";
+        $('input[type="checkbox"][name="install_dismissible"]:checked').each(function(){
+            install_dismissible = $(this).val();
+        });
+        var descJson = {};
+        descJson['id'] = id;
+        descJson['type'] = type;
+        descJson['package_name'] = package_name;
+        descJson['order_num'] = order_num;
+        descJson['title'] = title;
+        descJson['content'] = content;
+        descJson['pic_url'] = pic_url;
+        descJson['big_pic_url'] = big_pic_url;
+        descJson['target_type'] = target_type;
+        descJson['target'] = target;
+        descJson['pkg_name'] = pkg_name;
+        descJson['ver_name'] = ver_name;
+        descJson['size'] = size;
+        descJson['filename'] = filename;
+        descJson['show_delay'] = show_delay;
+        descJson['next_delay'] = next_delay;
+        descJson['filter_pkg_names'] = filter_pkg_names.join(',');
+        descJson['channel'] = channel;
+        descJson['life_time'] = life_time;
+        descJson['monet_silent'] = monet_silent;
+        descJson['wifi_silent'] = wifi_silent;
+        descJson['download_dismissible'] = download_dismissible;
+        descJson['install_dismissible'] = install_dismissible;
+        alert(JSON.stringify(descJson));
+        if (content) {
+            $.post('/gg_mgmt/ad/add/', descJson, function (result) {
+                window.location.href = '/gg_mgmt/ad/info/?channel=' + channel + '&type=' + type;
+            });
+        } else {
+            alert("请补充完整广告信息！！！");
+        }
+      });
+    </script>
+{% endblock %}
+
+

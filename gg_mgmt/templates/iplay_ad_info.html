@@ -1,0 +1,186 @@
+{% extends 'base/base.html' %}
+
+{% block title %}广告信息列表{% endblock %}
+
+{% block content %}
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="col-xs-3">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label>广告渠道</label>
+                      <select class="form-control" id="channel">
+                        {% for ch in channels %}
+                        {% ifequal ch.id channel %}
+                        <option value="{{ ch.id }}" selected="selected">{{ ch.name }}</option>
+                        {% else %}
+                        <option value="{{ ch.id }}">{{ ch.name }}</option>
+                        {% endifequal %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (left) -->
+            <div class="col-xs-3">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label>广告位置</label>
+                      <select class="form-control" id="type">
+                        {% ifequal type '0' %}
+                        <option value="0" selected="selected">所有位置广告</option>
+                        {% for tp in types %}
+                        <option value="{{ tp.id }}">{{ tp.name }}</option>
+                        {% endfor %}
+                        {% else %}
+                        <option value="0">所有位置广告</option>
+                        {% for tp in types %}
+                        {% ifequal tp.id type %}
+                        <option value="{{ tp.id }}" selected="selected">{{ tp.name }}</option>
+                        {% else %}
+                        <option value="{{ tp.id }}">{{ tp.name }}</option>
+                        {% endifequal %}
+                        {% endfor %}
+                        {% endifequal %}
+                      </select>
+                    </div>
+                  </div><!-- /.box-body -->
+                </form>
+              </div><!-- /.box -->
+            </div><!--/.col (left) -->
+        </section><!-- /.content -->
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-3">
+                <button class="btn btn-block btn-success" onclick="add_iplay_ad()">新增广告</button>
+            </div>
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">{% for ch in channels %}{% ifequal ch.id channel %}{{ ch.name }}渠道{% endifequal %}{% endfor %}，{% ifequal type '0' %}所有位置{% endifequal %}
+                    {% for tp in types %}{% ifequal tp.id type %}{{ tp.name }}{% endifequal %}{% endfor %}的广告列表</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>广告渠道</th>
+                        <th>广告位置</th>
+                        <th>标题</th>
+                        <th>广告图片</th>
+                        <th>排列顺序</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for info in infos %}
+                      <tr id="{{ info.id }}">
+                        <td>{{ info.id }}</td>
+                        <td>{% for channel in channels %}{% ifequal channel.id info.channel %}{{ channel.name }}{% endifequal %}{% endfor %}</td>
+                        <td>{% for type in types %}{% ifequal type.id info.type %}{{ type.name }}{% endifequal %}{% endfor %}</td>
+                        <td><a href="/gg_mgmt/ad/edit/?id={{ info.id }}&channel={{ info.channel }}">{{ info.title }}</a></td>
+                        <td><a href="/gg_mgmt/ad/edit/?id={{ info.id }}&channel={{ info.channel }}"><img style="width:75px;height:75px;" src="{{ info.pic_url }}"></a></td>
+                        <td>{{ info.order_num }}</td>
+                        <td>
+                          {% ifnotequal type '0' %}
+                          {% if not forloop.first %}
+                          <button class="btn btn-info btn-flat" type="button" onclick="move_up('{{ info.id }}')"><i class="fa fa-fw fa-arrow-up"></i>上移</button>
+                          {% endif %}
+                          {% if not forloop.last %}
+                          <button class="btn btn-info btn-flat" type="button" onclick="move_down('{{ info.id }}')"><i class="fa fa-fw fa-arrow-down"></i>下移</button>
+                          {% endif %}
+                          {% endifnotequal %}
+                          <button class="btn btn-info btn-flat" type="button" onclick="del_iplay_ad('{{ info.id }}')">删除</button>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+      $("#channel").change(function(){
+        var channel = $("#channel").val();
+        var type = $("#type").val();
+        window.location.href = '/gg_mgmt/ad/info/?channel='+channel+'&type='+type;
+      });
+      $("#type").change(function(){
+        var channel = $("#channel").val();
+        var type = $("#type").val();
+        window.location.href = '/gg_mgmt/ad/info/?channel='+channel+'&type='+type;
+      });
+      function add_iplay_ad() {
+        var channel = $("#channel").val();
+        var type = $("#type").val();
+        window.location.href = '/gg_mgmt/ad/edit/?channel='+channel+'&type='+type;
+      }
+      function move_up(id) {
+        var channel = $("#channel").val();
+        var type = $("#type").val();
+        window.location.href = '/gg_mgmt/ad/up/?channel='+channel+'&type='+type+'&id='+id;
+      }
+      function move_down(id) {
+        var channel = $("#channel").val();
+        var type = $("#type").val();
+        window.location.href = '/gg_mgmt/ad/down/?channel='+channel+'&type='+type+'&id='+id;
+      }
+      function del_iplay_ad(id) {
+        var descJson = {};
+        var channel = $("#channel").val();
+        descJson['id'] = id;
+        descJson['channel'] = channel;
+        if(confirm('确认删除吗？')){
+            $.post('/gg_mgmt/ad/del/', descJson, function(result){
+                var channel = $("#channel").val();
+                var type = $("#type").val();
+                window.location.href = '/gg_mgmt/ad/info/?channel='+channel+'&type='+type;
+            });
+        }else{
+            alert('取消删除！');
+        }
+      }
+
+      $(function () {
+        $('#example1').dataTable({
+          "bSort": false,
+          "bLengthChange": true,
+          "bFilter": false,
+          "oLanguage": {
+            "sLengthMenu": "每页显示 _MENU_ 条记录",
+            "sZeroRecords": "抱歉， 没有找到",
+            "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+            "sInfoEmpty": "没有数据",
+            "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+            "oPaginate": {
+              "sFirst": "首页",
+              "sPrevious": "前一页",
+              "sNext": "后一页",
+              "sLast": "尾页"
+            },
+            "sZeroRecords": "没有检索到数据"
+          }
+        });
+      });
+    </script>
+{% endblock %}

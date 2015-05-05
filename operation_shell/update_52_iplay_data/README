@@ -1,0 +1,8 @@
+178上的game/views.py中的
+  def releaseData调用/root/update_52_iplay_data/release.py
+  release.py调用春海写的刷新缓存（中间表脚本）, get_178_iplay_data.sh
+            get_178_iplay_data.sh先调用178下的get_178_labels_and_pkgs.py生成　iplay_*的数据
+　然后调用52的update_52_iplay_data.py
+
+178中的get_178_iplay_data.sh,get_178_labels_and_pkgs.py,release.py中的数据库都为178
+52中的update_52_iplay_data.py指向52

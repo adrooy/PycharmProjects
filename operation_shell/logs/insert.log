@@ -1,0 +1,128 @@
+2015-05-05 06:04:43,959 DEBUG START PostRobotPlugin
+2015-05-05 06:05:00,421 DEBUG START PostRobotPlugin
+2015-05-05 14:12:29,802 DEBUG START PostRobotPlugin
+2015-05-05 14:12:29,836 DEBUG http://www.ggzs.me
+2015-05-05 14:13:02,259 DEBUG {u'items': [], u'targetVersion': 51, u'pluginVersion': 2, u'label': u'Mortal Kombat X\u514d\u9a8c\u8bc1\u514d\u8d39\u5185\u8d2d\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.wb.goog.mkx', u'storageId': u'1c2b75c3-5b3f-49e5-b8ef-1e3b5b21a28b', u'targetName': u'com.wb.goog.mkx', u'id': u'30a718f9-cbf3-497b-ae6f-8af173bca8e1'}
+2015-05-05 06:21:08,363 DEBUG START PostRobotPlugin
+2015-05-05 06:21:08,394 DEBUG http://www.ggzs.me
+2015-05-05 06:21:50,951 DEBUG {u'items': [], u'targetVersion': 51, u'pluginVersion': 2, u'label': u'Mortal Kombat X\u514d\u9a8c\u8bc1\u514d\u8d39\u5185\u8d2d\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.wb.goog.mkx', u'storageId': u'1c2b75c3-5b3f-49e5-b8ef-1e3b5b21a28b', u'targetName': u'com.wb.goog.mkx', u'id': u'30a718f9-cbf3-497b-ae6f-8af173bca8e1'}
+2015-05-05 14:23:16,409 DEBUG com.gameassist.autoplugin.com.wb.goog.mkx[2]
+2015-05-05 14:23:16,419 DEBUG Mortal Kombat X免验证免费内购破解插件
+2015-05-05 14:23:34,630 DEBUG posttime=1430807014&attachnew%5B5239%5D%5Breadperm%5D=&replycredit_random=100&typeoption%5Bresource_type%5D=plugin&replycredit_times=1&usesig=1&attachnew%5B5239%5D%5Bdescription%5D=&sortid=1&readperm=&selectsortid=1&wysiwyg=1&replycredit_membertimes=1&allownoticeauthor=1&formhash=31eed237&message=Mortal+Kombat+X%E5%85%8D%E9%AA%8C%E8%AF%81%E5%85%8D%E8%B4%B9%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3%E6%8F%92%E4%BB%B6&save=&replycredit_extcredits=0&subject=com.gameassist.autoplugin.com.wb.goog.mkx%5B2%5D
+2015-05-05 14:23:36,691 DEBUG plugin_name[version]: com.gameassist.autoplugin.com.wb.goog.mkx[2] aid: 5239 tid: p://www.ggzs.me/forum/thread-269323-1-1.html
+2015-05-05 06:26:33,909 DEBUG [Errno 104] Connection reset by peer
+2015-05-05 06:26:33,913 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 14:28:25,216 DEBUG START PostRobotPlugin
+2015-05-05 14:28:25,263 DEBUG http://www.ggzs.me
+2015-05-05 14:28:31,520 DEBUG Could not connect to ga-storage.lbesec.com:65306. Error: [Errno -2] Name or service not known
+2015-05-05 14:28:31,524 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 14:30:13,478 DEBUG START PostRobotPlugin
+2015-05-05 14:30:13,494 DEBUG http://www.ggzs.me
+2015-05-05 14:30:20,954 DEBUG Could not connect to ga-storage.lbesec.com:65306. Error: [Errno -2] Name or service not known
+2015-05-05 14:30:20,956 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 06:32:57,992 DEBUG START PostRobotPlugin
+2015-05-05 06:32:58,007 DEBUG http://www.ggzs.me
+2015-05-05 06:33:14,984 DEBUG {u'items': [], u'targetVersion': 51, u'pluginVersion': 2, u'label': u'Mortal Kombat X\u514d\u9a8c\u8bc1\u514d\u8d39\u5185\u8d2d\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.wb.goog.mkx', u'storageId': u'1c2b75c3-5b3f-49e5-b8ef-1e3b5b21a28b', u'targetName': u'com.wb.goog.mkx', u'id': u'30a718f9-cbf3-497b-ae6f-8af173bca8e1'}
+2015-05-05 06:40:37,914 DEBUG select PluginStore
+2015-05-05 06:40:37,928 DEBUG com.gameassist.autoplugin.com.wb.goog.mkx[2]
+2015-05-05 06:40:37,929 DEBUG Mortal Kombat X免验证免费内购破解插件
+2015-05-05 06:40:37,929 DEBUG has thread for this plugin : com.gameassist.autoplugin.com.wb.goog.mkx[2]
+2015-05-05 06:52:59,437 DEBUG START PostRobotPlugin
+2015-05-05 06:52:59,476 DEBUG http://www.ggzs.me
+2015-05-05 06:54:18,756 DEBUG Could not connect to ga-storage.lbesec.com:65306. Error: [Errno -3] Temporary failure in name resolution
+2015-05-05 06:54:18,761 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 14:55:09,462 DEBUG START PostRobotPlugin
+2015-05-05 14:55:09,507 DEBUG http://www.ggzs.me
+2015-05-05 14:55:20,345 DEBUG {u'items': [], u'targetVersion': 2, u'pluginVersion': 1, u'label': u'Jungle Monkey Run\u514d\u9a8c\u8bc1\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.jungle.monkey.free', u'storageId': u'e3327334-27e5-4467-86db-6901b5a10525', u'targetName': u'com.jungle.monkey.free', u'id': u'47b96bf7-2132-43f6-b3ba-7765115d9196'}
+2015-05-05 14:56:41,793 DEBUG select PluginStore
+2015-05-05 14:56:41,807 DEBUG com.gameassist.autoplugin.com.jungle.monkey.free[1]
+2015-05-05 14:56:41,808 DEBUG Jungle Monkey Run免验证破解插件
+2015-05-05 14:56:41,808 DEBUG has thread for this plugin : com.gameassist.autoplugin.com.jungle.monkey.free[1]
+2015-05-05 14:56:43,548 DEBUG POST SUCCESS
+2015-05-05 14:56:43,556 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 14:59:45,749 DEBUG START PostRobotPlugin
+2015-05-05 14:59:45,765 DEBUG http://www.ggzs.me
+2015-05-05 14:59:51,586 DEBUG {u'items': [], u'targetVersion': 4, u'pluginVersion': 1, u'label': u'Adventure Chronicles\u514d\u9a8c\u8bc1\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.bigfishgames.google.advchronfull', u'storageId': u'c721362d-341c-4588-8617-3954c041f47b', u'targetName': u'com.bigfishgames.google.advchronfull', u'id': u'44a8a6d0-6c52-4780-8e0b-749a1e0521ed'}
+2015-05-05 15:00:33,187 DEBUG select PluginStore
+2015-05-05 15:00:33,199 DEBUG com.gameassist.autoplugin.com.bigfishgames.google.advchronfull[1]
+2015-05-05 15:00:33,199 DEBUG Adventure Chronicles免验证破解插件
+2015-05-05 15:00:34,760 DEBUG posttime=1430809234&replycredit_random=100&typeoption%5Bresource_type%5D=plugin&replycredit_times=1&usesig=1&sortid=1&readperm=&selectsortid=1&wysiwyg=1&replycredit_membertimes=1&allownoticeauthor=1&formhash=53adf692&attachnew%5B5244%5D%5Breadperm%5D=&attachnew%5B5244%5D%5Bdescription%5D=&message=Adventure+Chronicles%E5%85%8D%E9%AA%8C%E8%AF%81%E7%A0%B4%E8%A7%A3%E6%8F%92%E4%BB%B6&save=&replycredit_extcredits=0&subject=com.gameassist.autoplugin.com.bigfishgames.google.advchronfull%5B1%5D
+2015-05-05 15:00:35,772 DEBUG plugin_name[version]: com.gameassist.autoplugin.com.bigfishgames.google.advchronfull[1] aid: 5244 tid: p://www.ggzs.me/forum/thread-269343-1-1.html
+2015-05-05 15:00:35,773 DEBUG POST SUCCESS
+2015-05-05 15:00:35,776 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 15:08:20,014 DEBUG START PostRobotPlugin
+2015-05-05 15:08:20,028 DEBUG http://www.ggzs.me
+2015-05-05 15:08:24,364 DEBUG {u'items': [], u'targetVersion': 2, u'pluginVersion': 1, u'label': u'An Octave Higher\u514d\u9a8c\u8bc1\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.playism.octave', u'storageId': u'f16f5f8e-7c7a-4eea-bcf1-72defe78d6ce', u'targetName': u'com.playism.octave', u'id': u'e4910e11-ddf9-4f72-9559-7b781e2b7a09'}
+2015-05-05 15:08:43,054 DEBUG START PostRobotPlugin
+2015-05-05 15:08:43,070 DEBUG http://www.ggzs.me
+2015-05-05 15:08:48,652 DEBUG {u'items': [], u'targetVersion': 8, u'pluginVersion': 1, u'label': u'Virus Hunter\u514d\u9a8c\u8bc1\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.diabolicalsoftware.virushunter.paid', u'storageId': u'350265f7-a521-489a-ad8b-dad2f55893f4', u'targetName': u'com.diabolicalsoftware.virushunter.paid', u'id': u'0bd7878e-130e-403d-829c-25218131b016'}
+2015-05-05 15:08:58,421 DEBUG START PostRobotPlugin
+2015-05-05 15:08:58,437 DEBUG http://www.ggzs.me
+2015-05-05 15:09:26,375 DEBUG {u'items': [], u'targetVersion': 1133, u'pluginVersion': 1, u'label': u'MineSweeper\u514d\u8c37\u6b4c\u514d\u9a8c\u8bc1\u514d\u8d39\u5185\u8d2d\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.br.com.tapps.templeminesweeper', u'storageId': u'3051e83d-7390-4251-96d9-8da8fa3aa861', u'targetName': u'br.com.tapps.templeminesweeper', u'id': u'c09992b4-4d49-4d13-a782-b77dfa662463'}
+2015-05-05 15:10:14,862 DEBUG select PluginStore
+2015-05-05 15:10:14,880 DEBUG com.gameassist.autoplugin.com.playism.octave[1]
+2015-05-05 15:10:14,880 DEBUG An Octave Higher免验证破解插件
+2015-05-05 15:10:17,598 DEBUG attachnew%5B5246%5D%5Bdescription%5D=&posttime=1430809817&replycredit_random=100&typeoption%5Bresource_type%5D=plugin&attachnew%5B5246%5D%5Breadperm%5D=&replycredit_times=1&usesig=1&sortid=1&readperm=&selectsortid=1&wysiwyg=1&replycredit_membertimes=1&allownoticeauthor=1&formhash=e0cdf038&message=An+Octave+Higher%E5%85%8D%E9%AA%8C%E8%AF%81%E7%A0%B4%E8%A7%A3%E6%8F%92%E4%BB%B6&save=&replycredit_extcredits=0&subject=com.gameassist.autoplugin.com.playism.octave%5B1%5D
+2015-05-05 15:10:18,593 DEBUG plugin_name[version]: com.gameassist.autoplugin.com.playism.octave[1] aid: 5246 tid: p://www.ggzs.me/forum/thread-269346-1-1.html
+2015-05-05 15:10:20,810 DEBUG POST SUCCESS
+2015-05-05 15:10:20,813 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 15:10:52,985 DEBUG select PluginStore
+2015-05-05 15:10:53,005 DEBUG com.gameassist.autoplugin.com.diabolicalsoftware.virushunter.paid[1]
+2015-05-05 15:10:53,006 DEBUG Virus Hunter免验证破解插件
+2015-05-05 15:10:55,204 DEBUG posttime=1430809855&attachnew%5B5247%5D%5Breadperm%5D=&attachnew%5B5247%5D%5Bdescription%5D=&replycredit_random=100&typeoption%5Bresource_type%5D=plugin&replycredit_times=1&usesig=1&sortid=1&readperm=&selectsortid=1&wysiwyg=1&replycredit_membertimes=1&allownoticeauthor=1&formhash=9db0dffe&message=Virus+Hunter%E5%85%8D%E9%AA%8C%E8%AF%81%E7%A0%B4%E8%A7%A3%E6%8F%92%E4%BB%B6&save=&replycredit_extcredits=0&subject=com.gameassist.autoplugin.com.diabolicalsoftware.virushunter.paid%5B1%5D
+2015-05-05 15:10:56,344 DEBUG plugin_name[version]: com.gameassist.autoplugin.com.diabolicalsoftware.virushunter.paid[1] aid: 5247 tid: p://www.ggzs.me/forum/thread-269347-1-1.html
+2015-05-05 15:10:57,283 DEBUG select PluginStore
+2015-05-05 15:10:57,302 DEBUG com.gameassist.autoplugin.br.com.tapps.templeminesweeper[1]
+2015-05-05 15:10:57,303 DEBUG MineSweeper免谷歌免验证免费内购破解插件
+2015-05-05 15:10:59,346 DEBUG posttime=1430809859&attachnew%5B5248%5D%5Breadperm%5D=&attachnew%5B5248%5D%5Bdescription%5D=&replycredit_random=100&typeoption%5Bresource_type%5D=plugin&replycredit_times=1&usesig=1&sortid=1&readperm=&selectsortid=1&wysiwyg=1&replycredit_membertimes=1&allownoticeauthor=1&formhash=0d01e885&message=MineSweeper%E5%85%8D%E8%B0%B7%E6%AD%8C%E5%85%8D%E9%AA%8C%E8%AF%81%E5%85%8D%E8%B4%B9%E5%86%85%E8%B4%AD%E7%A0%B4%E8%A7%A3%E6%8F%92%E4%BB%B6&save=&replycredit_extcredits=0&subject=com.gameassist.autoplugin.br.com.tapps.templeminesweeper%5B1%5D
+2015-05-05 15:11:00,559 DEBUG plugin_name[version]: com.gameassist.autoplugin.br.com.tapps.templeminesweeper[1] aid: 5248 tid: p://www.ggzs.me/forum/thread-269348-1-1.html
+2015-05-05 15:11:42,356 DEBUG POST SUCCESS
+2015-05-05 15:11:42,359 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 15:11:42,359 DEBUG POST SUCCESS
+2015-05-05 15:11:42,362 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 15:15:22,360 DEBUG START PostRobotPlugin
+2015-05-05 15:15:22,375 DEBUG http://www.ggzs.me
+2015-05-05 15:15:46,248 DEBUG Could not connect to ga-storage.lbesec.com:65306. Error: [Errno -3] Temporary failure in name resolution
+2015-05-05 15:15:46,258 DEBUG END PostRobotPlugin
+
+
+
+2015-05-05 15:16:30,798 DEBUG START PostRobotPlugin
+2015-05-05 15:16:30,815 DEBUG http://www.ggzs.me
+2015-05-05 15:16:56,519 DEBUG {u'items': [], u'targetVersion': 20031, u'pluginVersion': 24, u'label': u'Heroes O&C\u514d\u9a8c\u8bc1\u7834\u89e3\u63d2\u4ef6', u'pluginName': u'com.gameassist.autoplugin.com.gameloft.android.ANMP.GloftHOHM', u'storageId': u'8bfc1c9b-38a4-4089-9207-6605a848c780', u'targetName': u'com.gameloft.android.ANMP.GloftHOHM', u'id': u'4b4c896c-e58e-40c6-90ab-03c208960d28'}
+2015-05-05 15:17:35,393 DEBUG select PluginStore
+2015-05-05 15:17:35,407 DEBUG com.gameassist.autoplugin.com.gameloft.android.ANMP.GloftHOHM[24]
+2015-05-05 15:17:35,408 DEBUG Heroes O&C免验证破解插件
+2015-05-05 15:17:35,408 DEBUG has thread for this plugin : com.gameassist.autoplugin.com.gameloft.android.ANMP.GloftHOHM[24]
+2015-05-05 15:17:51,518 DEBUG POST SUCCESS
+2015-05-05 15:17:51,522 DEBUG END PostRobotPlugin
+
+
+

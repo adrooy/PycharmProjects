@@ -1,0 +1,55 @@
+/**{margin:0;padding:0;list-style-type:none;}
+body{font-family:'microsoft yahei';}
+a{text-decoration:none;}
+*/
+.showdiv{color:#fff;background:#09F;}
+/* box */
+.showbox{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #8FA4F5 solid;padding:1px;background:#fff;}
+.showbox h2{height:25px;font-size:14px;background-color:#09F;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.showbox h2 a{position:absolute;right:5px;top:5px;font-size:14px;color:white;}
+.showbox .mainlist{padding:10px;}
+.showbox .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
+#zhezhao{background-color:#666;position:absolute;z-index:99;left:0;top:0;display:none;width:100%;height:100%;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;}
+
+
+
+
+
+.showban{color:#fff;background:#09F;}
+/* box */
+.showbanner{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #8FA4F5 solid;padding:1px;background:#fff;}
+.showbanner h2{height:25px;font-size:14px;background-color:#09F;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.showbanner h2 a{position:absolute;right:5px;top:5px;font-size:14px;color:white;}
+.showbanner .mainlist{padding:10px;}
+.showbanner .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
+
+
+.showpp9y{color:#fff;background:#09F;}
+/* box */
+.pp9ybanner{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #8FA4F5 solid;padding:1px;background:#fff;}
+.pp9ybanner h2{height:25px;font-size:14px;background-color:#09F;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.pp9ybanner h2 a{position:absolute;right:5px;top:5px;font-size:14px;color:white;}
+.pp9ybanner .mainlist{padding:10px;}
+.pp9ybanner .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
+
+
+.pp9yfl{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #8FA4F5 solid;padding:1px;background:#fff;}
+.pp9yfl h2{height:25px;font-size:14px;background-color:#09F;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.pp9yfl h2 a{position:absolute;right:5px;top:5px;font-size:14px;color:white;}
+.pp9yfl .mainlist{padding:10px;}
+.pp9yfl .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
+
+
+.showhotpp{color:#fff;background:#09F;}
+.showhotppbox{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #8FA4F5 solid;padding:1px;background:#fff;}
+.showhotppbox h2{height:25px;font-size:14px;background-color:#09F;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.showhotppbox h2 a{position:absolute;right:5px;top:5px;font-size:14px;color:white;}
+.showhotppbox .mainlist{padding:10px;}
+.showhotppbox .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
+
+.showhot9y{color:#fff;background:#09F;}
+.showhot9ybox{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #8FA4F5 solid;padding:1px;background:#fff;}
+.showhot9ybox h2{height:25px;font-size:14px;background-color:#09F;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.showhot9ybox h2 a{position:absolute;right:5px;top:5px;font-size:14px;color:white;}
+.showhot9ybox .mainlist{padding:10px;}
+.showhot9ybox .mainlist p{font:normal 14px/2 'microsoft yahei';text-indent:2em;color:#333;padding-top:5px;}
